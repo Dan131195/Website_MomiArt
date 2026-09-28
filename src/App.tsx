@@ -3,11 +3,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Homepage from "./pages/Hompage";
 import Footer from "./components/Footer";
-import { PaintingsProvider } from "./provider/PaintingsProvider";
+import { DataProvider } from "./provider/DataProvider";
 
 function App() {
   return (
-    <PaintingsProvider>
+    <DataProvider>
       <BrowserRouter>
         <Navbar />
 
@@ -17,7 +17,7 @@ function App() {
 
         <Footer />
       </BrowserRouter>
-    </PaintingsProvider>
+    </DataProvider>
   );
 }
 

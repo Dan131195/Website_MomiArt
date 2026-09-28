@@ -51,6 +51,7 @@ export interface StyleInterface {
   _system: SystemInfo;
   _type: "stile";
   _updateAt: string;
+  descrizione: string;
   slug: SanitySlug;
   title: string;
 }
