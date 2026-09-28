@@ -5,3 +5,7 @@
   font-family: "Outfit", "Roboto", sans-serif;
   font-size: 1em;
 }
+
+#root {
+  background-color: #f3efe7;
+}
