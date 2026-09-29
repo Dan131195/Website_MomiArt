@@ -11,20 +11,51 @@ const Homepage = () => {
   }, [paintings, styles]);
 
   return (
-    <section>
-      <h1>Momi's Art</h1>
-      {paintings &&
-        paintings.map((p) => {
-          return (
-            <img
-              key={p._id}
-              src={urlFor(p.immagine).url()}
-              alt={p.titolo}
-              width={150}
-            />
-          );
-        })}
-    </section>
+    <div>
+      <section>
+        <h1>
+          MOMI <span className=" ms-md-0">ART</span>
+        </h1>
+        {paintings && (
+          <div className="d-flex  gap-3 carouselContainer">
+            {paintings.map((p) => {
+              return (
+                <img
+                  key={p._id}
+                  src={urlFor(p.immagine).url()}
+                  alt={p.titolo}
+                  width={300}
+                  className="rounded-5"
+                />
+              );
+            })}
+            {paintings.map((p) => {
+              return (
+                <img
+                  key={p._id}
+                  src={urlFor(p.immagine).url()}
+                  alt={p.titolo}
+                  width={300}
+                  className="rounded-5"
+                />
+              );
+            })}
+            {paintings.map((p) => {
+              return (
+                <img
+                  key={p._id}
+                  src={urlFor(p.immagine).url()}
+                  alt={p.titolo}
+                  width={300}
+                  className="rounded-5"
+                />
+              );
+            })}
+          </div>
+        )}
+      </section>
+      <section></section>
+    </div>
   );
 };
 

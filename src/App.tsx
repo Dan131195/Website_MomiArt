@@ -1,6 +1,7 @@
 import "./assets/styles/App.css";
-import "./assets/styles/index.css";
+import "./assets/styles/home.css";
 import "./assets/styles/navbar.css";
+import "./assets/styles/footer.css";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
@@ -13,14 +14,18 @@ function App() {
   return (
     <DataProvider>
       <BrowserRouter>
-        <Navbar />
-
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          <Route path="*" element={<Error />} />
-        </Routes>
-
-        <Footer />
+        <div id="navbar">
+          <Navbar />
+        </div>
+        <div id="main">
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="*" element={<Error />} />
+          </Routes>
+        </div>
+        <div id="footer">
+          <Footer />
+        </div>
       </BrowserRouter>
     </DataProvider>
   );

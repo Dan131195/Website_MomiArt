@@ -18,11 +18,18 @@ body {
 #root {
   width: 90%;
   margin: auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#main {
+  flex-grow: 1;
 }
 
 @media screen and (min-width: 798px) {
   * {
-    font-size: 0.98em;
+    font-size: 1em;
   }
   #root {
     width: 70%;

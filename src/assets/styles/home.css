@@ -1,0 +1,39 @@
+h1,
+h1 span {
+  font-family: "Fredericka the Great", serif;
+  font-weight: 600;
+  color: #0aa8d6;
+}
+
+h1 {
+  font-size: 6em;
+}
+
+h1 span {
+  font-weight: 500;
+  font-size: 0.95em;
+  margin: 1.5em;
+}
+
+.carouselContainer {
+  animation: carousel 30s linear infinite;
+}
+
+@media screen and (min-width: 1200px) {
+  .carouselContainer {
+    animation: carousel 60s linear infinite;
+  }
+}
+
+@keyframes carousel {
+  from {
+    transform: translateX(-10%);
+  }
+  to {
+    transform: translateX(-700%);
+  }
+}
+
+.carouselContainer:hover {
+  animation-play-state: paused;
+}
