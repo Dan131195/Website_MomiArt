@@ -1,11 +1,43 @@
+:root {
+  --momiart-color: #8a8787;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Outfit", "Roboto", sans-serif;
-  font-size: 1em;
+  font-size: 0.95em;
+  color: var(--momiart-color);
+}
+
+body {
+  background-color: #f3efe7;
 }
 
 #root {
-  background-color: #f3efe7;
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#main {
+  flex-grow: 1;
+}
+
+@media screen and (min-width: 798px) {
+  * {
+    font-size: 1em;
+  }
+  #root {
+    width: 70%;
+  }
+}
+
+@media screen and (min-width: 2000px) {
+  #root {
+    width: 55%;
+  }
 }

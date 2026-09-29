@@ -1,32 +1,61 @@
-import { useEffect, useState } from "react";
-import createClient from "../api/client.ts";
-import type { PaintingInterface } from "../types";
+import { useEffect } from "react";
+import { useData } from "../context/DataContext.ts";
+import { urlFor } from "../api/image.ts";
 
 const Homepage = () => {
-  const [painting, setPainting] = useState<PaintingInterface[]>([]);
+  const { paintings, styles } = useData();
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data =
-          await createClient.fetch<PaintingInterface[]>(`*[_type == "quadro"]`);
-        setPainting(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  useEffect(() => {
-    console.log(painting);
-  }, [painting]);
+    console.log(paintings);
+    console.log(styles);
+  }, [paintings, styles]);
 
   return (
-    <section>
-      <h1>Momi's Art</h1>
-    </section>
+    <div>
+      <section>
+        <h1>
+          MOMI <span className=" ms-md-0">ART</span>
+        </h1>
+        {paintings && (
+          <div className="d-flex  gap-3 carouselContainer">
+            {paintings.map((p) => {
+              return (
+                <img
+                  key={p._id}
+                  src={urlFor(p.immagine).url()}
+                  alt={p.titolo}
+                  width={300}
+                  className="rounded-5"
+                />
+              );
+            })}
+            {paintings.map((p) => {
+              return (
+                <img
+                  key={p._id}
+                  src={urlFor(p.immagine).url()}
+                  alt={p.titolo}
+                  width={300}
+                  className="rounded-5"
+                />
+              );
+            })}
+            {paintings.map((p) => {
+              return (
+                <img
+                  key={p._id}
+                  src={urlFor(p.immagine).url()}
+                  alt={p.titolo}
+                  width={300}
+                  className="rounded-5"
+                />
+              );
+            })}
+          </div>
+        )}
+      </section>
+      <section></section>
+    </div>
   );
 };
 
