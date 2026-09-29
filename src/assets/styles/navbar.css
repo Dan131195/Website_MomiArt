@@ -1,0 +1,12 @@
+@import url("App.css");
+
+nav li {
+  list-style-type: none;
+}
+
+nav li a {
+  color: var(--momiart-color);
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+}

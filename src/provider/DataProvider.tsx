@@ -10,8 +10,24 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     Promise.all([
-      client.fetch<PaintingInterface[]>(`*[_type == 'quadro']`),
-      client.fetch<StyleInterface[]>(`*[_type == 'stile']`),
+      client.fetch<
+        PaintingInterface[]
+      >(`*[_type == "quadro"] | order(anno desc) {
+        _id,
+        titolo,
+        anno,
+        descrizione,
+        Disponibile,
+        immagine,
+        "slug": slug.current,
+        "stile": stile->stile
+        }`),
+      client.fetch<StyleInterface[]>(`*[_type == 'stile'] {
+        _id,
+        descrizione,
+        slug,
+        stile,
+        }`),
     ])
 
       .then(([paintingsData, stylesData]) => {
