@@ -1,5 +1,15 @@
 @import url("App.css");
 
+nav {
+  background-color: #f3efe7;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding-right: 10px;
+}
+
 nav li {
   list-style-type: none;
 }

@@ -1,3 +1,7 @@
+#homeContainer {
+  min-height: 300vh;
+}
+
 h1,
 h1 span {
   font-family: "Fredericka the Great", serif;
@@ -5,35 +9,86 @@ h1 span {
   color: #0aa8d6;
 }
 
-h1 {
+/* h1 {
   font-size: 6em;
+  animation: rimpicciolisci linear both;
+  animation-timeline: scroll();
+  animation-range: 0 200px;
+}
+
+@keyframes rimpicciolisci {
+  to {
+    font-size: 1.5rem;
+  }
+} */
+
+.hero {
+  /* spazio di scroll per l'effetto */
+}
+
+.hero__sticky {
+  position: sticky; /* il titolo resta fermo mentre scorri */
+  top: 72px;
+  overflow: hidden;
+}
+
+.titolo {
+  font-size: 8rem;
+  animation: rimpicciolisci-poi-cadi linear both;
+  animation-timeline: scroll(root);
+  animation-range: 0 50vh;
+}
+
+@keyframes rimpicciolisci-poi-cadi {
+  0% {
+    scale: 1;
+    opacity: 1;
+  }
+  100% {
+    scale: 0.3;
+    opacity: 1;
+  }
 }
 
 h1 span {
   font-weight: 500;
   font-size: 0.95em;
-  margin: 1.5em;
 }
 
-.carouselContainer {
-  animation: carousel 30s linear infinite;
+#carousel_1 {
+  animation: carousel_1 10s linear infinite;
 }
 
-@media screen and (min-width: 1200px) {
-  .carouselContainer {
-    animation: carousel 60s linear infinite;
+#carousel_2 {
+  animation: carousel_2 10s linear infinite;
+}
+
+/* @media screen and (min-width: 1200px) {
+  #carousel1 {
+    animation: carousel_1 10s linear infinite;
+  }
+} */
+
+@keyframes carousel_1 {
+  0% {
+    transform: translateX(-20%);
+  }
+  50% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translatex(-20%);
   }
 }
 
-@keyframes carousel {
-  from {
-    transform: translateX(-10%);
+@keyframes carousel_2 {
+  0% {
+    transform: translateX(-90%);
   }
-  to {
-    transform: translateX(-700%);
+  50% {
+    transform: translateX(-60%);
   }
-}
-
-.carouselContainer:hover {
-  animation-play-state: paused;
+  100% {
+    transform: translatex(-90%);
+  }
 }

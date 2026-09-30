@@ -14,6 +14,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
         PaintingInterface[]
       >(`*[_type == "quadro"] | order(anno desc) {
         _id,
+        _createdAt,
         titolo,
         anno,
         descrizione,

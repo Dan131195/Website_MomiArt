@@ -14,6 +14,7 @@ export interface SanityImage {
 
 export interface PaintingInterface {
   _id: string;
+  _createdAt: string;
   titolo: string;
   anno: number;
   descrizione: string | null;

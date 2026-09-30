@@ -4,7 +4,7 @@
 const Navbar = () => {
   return (
     <nav>
-      <section className="my-2 d-flex justify-content-end align-items-center">
+      <section className="my-3 d-flex justify-content-end align-items-center">
         {/* <img src={logo} alt="MomiArt Logo" width={35} /> */}
         <ul className="m-0 p-0 d-flex align-items-center justify-content-end">
           <li>
