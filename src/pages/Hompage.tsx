@@ -32,7 +32,6 @@ const Homepage = () => {
                       key={p._id}
                       src={urlFor(p.immagine).url()}
                       alt={p.titolo}
-                      width={300}
                       className="rounded-5"
                     />
                   );
