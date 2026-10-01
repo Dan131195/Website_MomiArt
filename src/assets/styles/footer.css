@@ -1,3 +1,7 @@
+footer p {
+  font-size: 0.7em;
+}
+
 hr {
   color: rgb(4, 14, 102);
   border-width: 3px;
