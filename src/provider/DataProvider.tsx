@@ -8,6 +8,9 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
   const [styles, setStyles] = useState<StyleInterface[]>([]);
   const [loading, setLoading] = useState(true);
 
+  const delay = (ms: number) =>
+    new Promise((resolve) => setTimeout(resolve, ms));
+
   useEffect(() => {
     Promise.all([
       client.fetch<
@@ -29,6 +32,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
         slug,
         stile,
         }`),
+      delay(2000),
     ])
 
       .then(([paintingsData, stylesData]) => {
