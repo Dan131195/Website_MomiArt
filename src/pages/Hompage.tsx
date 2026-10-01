@@ -2,10 +2,6 @@ import { useEffect } from "react";
 import { useData } from "../context/DataContext.ts";
 import { urlFor } from "../api/image.ts";
 
-import abstract_1 from "../assets/images/abstract_1.jpeg";
-import city_1 from "../assets/images/city_1.jpeg";
-import city_2 from "../assets/images/city_2.jpeg";
-
 const Homepage = () => {
   const { paintings, styles } = useData();
 
@@ -67,19 +63,16 @@ const Homepage = () => {
 
           <section>
             <div id="citySection">
-              <div>
-                <img src={city_1} alt="Quadro city_1" />
-                <h3>LA CITTÀ È UN SOGNO</h3>
+              <div className="city_1">
+                <h4>LA CITTÀ È UN SOGNO</h4>
               </div>
 
-              <div className="pt-3 my-5">
-                <img src={city_2} alt="Quadro city_1" />
-                <h3>PALAZZI E STRADE COME PERSONAGGI</h3>
+              <div className="city_2 pt-3 my-5">
+                <h4>PALAZZI E STRADE COME PERSONAGGI</h4>
               </div>
 
-              <div className="pt-3 mb-5">
-                <img src={abstract_1} alt="Quadro abstract" />
-                <h3>IL COLORE VIENE PRIMA</h3>
+              <div className="abstract_1 pt-3 mb-5">
+                <h4>IL COLORE VIENE PRIMA</h4>
               </div>
             </div>
           </section>

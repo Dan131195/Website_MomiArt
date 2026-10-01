@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="mt-3">
+    <footer className="mt-3 ">
       <hr />
       <section className="my-3 d-flex justify-content-between align-items-center">
         <h3>MOMI ART</h3>
