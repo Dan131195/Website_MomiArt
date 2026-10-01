@@ -1,9 +1,12 @@
 const Footer = () => {
   return (
-    <footer>
-      <section className="d-flex justify-content-between aligne items-center">
+    <footer className="mt-3">
+      <hr />
+      <section className="my-3 d-flex justify-content-between align-items-center">
         <h3>MOMI ART</h3>
-        <div>© 2026 - MOMI ART | Omar Biancucci</div>
+        <div className="text-center me-2 d-md-flex justify-content-lg-end">
+          <p className="m-0">© 2026 | OMAR.B</p>
+        </div>
       </section>
     </footer>
   );

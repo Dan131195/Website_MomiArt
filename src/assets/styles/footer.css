@@ -1,4 +1,14 @@
+hr {
+  color: rgb(4, 14, 102);
+  border-width: 3px;
+}
+
 footer section h3 {
   font-family: "Fredericka the Great", serif;
-  color: #0aa8d6;
+  color: var(--momiart-title-color);
+}
+
+.dash {
+  letter-spacing: -3px;
+  margin: -5px 0px;
 }
