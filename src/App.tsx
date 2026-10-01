@@ -14,6 +14,7 @@ import Error from "./pages/Error";
 
 import Loading from "./pages/Loading";
 import Paintings from "./pages/Paintings";
+import Contacts from "./pages/Contacts";
 
 function App() {
   const { loading } = useData();
@@ -34,7 +35,8 @@ function App() {
             <Routes>
               <Route path="/" element={<Homepage />} />
               <Route path="*" element={<Error />} />
-              <Route path="/opere" element={<Paintings />} />
+              <Route path="/Opere" element={<Paintings />} />
+              <Route path="/Contatti" element={<Contacts />} />
             </Routes>
           </div>
 

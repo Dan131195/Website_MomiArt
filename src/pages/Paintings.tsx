@@ -6,16 +6,20 @@ const Opere = () => {
 
   return (
     <div>
-      <h2>OPERE</h2>
-      <div>
+      <h2 className="mb-4">OPERE</h2>
+      <div id="paintingsListContainer">
         {paintings.map((p) => {
           return (
-            <img
-              key={p._id}
-              src={urlFor(p.immagine).url()}
-              alt={p.titolo}
-              className="rounded-5"
-            />
+            <div key={p._id} className="paintingCard my-5">
+              <img
+                src={urlFor(p.immagine).url()}
+                alt={p.titolo}
+                className="rounded-2"
+              />
+              <p className="fw-bold m-0">{p.titolo}</p>
+              <p className="m-0 fs-6">{p.stile}</p>
+              <hr className="m-0" />
+            </div>
           );
         })}
       </div>

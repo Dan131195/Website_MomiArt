@@ -6,17 +6,14 @@ const Navbar = () => {
       <section className="my-3 w-100 ">
         <ul className="m-0 p-0 d-flex align-items-center justify-content-between justify-content-md-evenly">
           <li className="">
-            <Link to="/">HOME</Link>
-          </li>
-          <li className="">
-            <a href="">ABOUT ME</a>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/opere">OPERE</Link>
+            <Link to="/Opere">Opere</Link>
           </li>
 
           <li>
-            <a href="">CONTATTI</a>
+            <Link to="/Contatti">Contatti</Link>
           </li>
         </ul>
       </section>
