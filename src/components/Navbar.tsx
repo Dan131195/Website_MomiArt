@@ -1,13 +1,9 @@
-// import { Link } from "react-router-dom";
-// import logo from "../assets/images/Logo.png";
-
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <nav>
       <section className="my-3 w-100 ">
-        {/* <img src={logo} alt="MomiArt Logo" width={35} /> */}
         <ul className="m-0 p-0 d-flex align-items-center justify-content-between justify-content-md-evenly">
           <li className="">
             <Link to="/">HOME</Link>
