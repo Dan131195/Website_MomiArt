@@ -1,14 +1,8 @@
-import { useEffect } from "react";
 import { useData } from "../context/DataContext.ts";
 import { urlFor } from "../api/image.ts";
 
 const Homepage = () => {
-  const { paintings, styles } = useData();
-
-  useEffect(() => {
-    console.log(paintings);
-    console.log(styles);
-  }, [paintings, styles]);
+  const { paintings } = useData();
 
   return (
     <div>

@@ -1,6 +1,8 @@
 // import { Link } from "react-router-dom";
 // import logo from "../assets/images/Logo.png";
 
+import { Link } from "react-router-dom";
+
 const Navbar = () => {
   return (
     <nav>
@@ -8,10 +10,13 @@ const Navbar = () => {
         {/* <img src={logo} alt="MomiArt Logo" width={35} /> */}
         <ul className="m-0 p-0 d-flex align-items-center justify-content-between justify-content-md-evenly">
           <li className="">
+            <Link to="/">HOME</Link>
+          </li>
+          <li className="">
             <a href="">ABOUT ME</a>
           </li>
           <li>
-            <a href="">OPERE</a>
+            <Link to="/opere">OPERE</Link>
           </li>
 
           <li>
