@@ -4,15 +4,16 @@
 const Navbar = () => {
   return (
     <nav>
-      <section className="my-3 d-flex justify-content-end align-items-center">
+      <section className="my-3 w-100 ">
         {/* <img src={logo} alt="MomiArt Logo" width={35} /> */}
-        <ul className="m-0 p-0 d-flex align-items-center justify-content-end">
+        <ul className="m-0 p-0 d-flex align-items-center justify-content-between justify-content-md-evenly">
+          <li className="">
+            <a href="">ABOUT ME</a>
+          </li>
           <li>
             <a href="">OPERE</a>
           </li>
-          <li className="mx-3 mx-md-5">
-            <a href="">ABOUT ME</a>
-          </li>
+
           <li>
             <a href="">CONTATTI</a>
           </li>
