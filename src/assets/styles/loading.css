@@ -15,7 +15,6 @@
 }
 
 #loadingContainer p {
-  font-family: "Fredericka the Great", serif;
   color: #358def;
   font-size: 2em;
   animation: loading 2s linear infinite;

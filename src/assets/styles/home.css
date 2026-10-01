@@ -4,7 +4,6 @@
 
 h1,
 h1 span {
-  font-family: "Fredericka the Great", serif;
   font-weight: 600;
   color: var(--momiart-title-color);
 }
@@ -81,14 +80,13 @@ h1 span {
 }
 
 h2 {
-  font-family: "Fredericka the Great", serif;
   font-weight: 600;
   font-size: 1.8em;
 }
 
 h2 span {
   color: #1e07ec;
-  font-family: "Fredericka the Great", serif;
+
   font-size: 1em;
 }
 
@@ -141,7 +139,6 @@ h2 span {
 }
 
 #citySection div h4 {
-  font-family: "Fredericka the Great", serif;
   font-weight: 600;
   position: absolute;
   bottom: 10px;
