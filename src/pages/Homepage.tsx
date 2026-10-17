@@ -12,7 +12,7 @@ const Homepage = () => {
         <section className="hero">
           <div>
             <h1>
-              <img src={Title} alt="Animazione MomiArt" />
+              <img src={Title} alt="Animazione MomiArt" className="my-4" />
             </h1>
           </div>
           <div>

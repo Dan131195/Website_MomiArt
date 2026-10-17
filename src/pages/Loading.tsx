@@ -1,11 +1,10 @@
-import loadingAnimation from "../assets/svg/loading.svg";
+import Title from "../assets/video/Titolo.png";
 
 const Loading = () => {
   return (
     <div id="loadingContainer" className="text-center">
       <div>
-        <img src={loadingAnimation} alt="Loading animation" />
-        <p>LOADING ...</p>
+        <img src={Title} alt="Loading animation" />
       </div>
     </div>
   );
