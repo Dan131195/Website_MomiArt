@@ -1,1 +1,1 @@
-<img src="../Website/src/assets/video/Titolo.png" alt="MomiArt Logo" width="600">
+<img src="./src/assets/video/Titolo.png" alt="MomiArt Logo" width="600">
