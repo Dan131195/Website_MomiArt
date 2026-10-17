@@ -17,7 +17,7 @@ const Homepage = () => {
           </div>
           <div>
             {paintings && (
-              <div id="d-flex carouselContainer ">
+              <div id="carouselContainer">
                 <div id="carousel" className="d-flex gap-3">
                   {paintings.map((p) => {
                     return (

@@ -8,7 +8,14 @@ h1 img {
   width: 100%;
 }
 
+#carouselContainer {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  overflow: hidden;
+}
+
 #carousel {
+  width: max-content;
   animation: carousel 20s linear infinite;
 }
 
