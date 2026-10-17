@@ -6,6 +6,9 @@ const Loading = () => {
       <div>
         <img src={Title} alt="Loading animation" />
       </div>
+      <div>
+        <img src="" alt="" />
+      </div>
     </div>
   );
 };
