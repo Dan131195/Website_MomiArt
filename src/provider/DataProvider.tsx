@@ -24,12 +24,13 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
         Disponibile,
         immagine,
         "slug": slug.current,
-        "stile": stile->stile
+        "stile": stile->stile,
+        "stileSlug": stile->slug.current
         }`),
       client.fetch<StyleInterface[]>(`*[_type == 'stile'] {
         _id,
         descrizione,
-        slug,
+        "slug": slug.current,
         stile,
         }`),
       delay(2000),

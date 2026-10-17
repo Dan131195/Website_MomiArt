@@ -28,5 +28,5 @@ export interface StyleInterface {
   _id: string;
   descrizione: string;
   slug: string;
-  title: string;
+  stile: string;
 }

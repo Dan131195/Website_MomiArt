@@ -1,20 +1,11 @@
-#homeContainer {
-  min-height: 200vh;
-}
-
 h1,
 h1 span {
   font-weight: 600;
   color: var(--momiart-title-color);
 }
 
-h1 {
-  font-size: 6rem;
-}
-
-h1 span {
-  font-weight: 500;
-  font-size: 1em;
+h1 img {
+  width: 100%;
 }
 
 #carousel {
@@ -62,87 +53,4 @@ h1 span {
   #carousel img {
     width: 400px;
   }
-}
-
-.descrictionHomeContainer {
-  background-color: var(--momiart-title-color);
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-}
-
-.descrictionHomeContainer p {
-  text-align: justify;
-}
-
-.descrictionHomeContainer p,
-.descrictionHomeContainer h2 {
-  color: var(--momiart-bg-color);
-}
-
-h2 {
-  font-weight: 600;
-  font-size: 1.8em;
-}
-
-h2 span {
-  color: #1e07ec;
-
-  font-size: 1em;
-}
-
-@media screen and (min-width: 768px) {
-  h2 br {
-    display: none;
-  }
-}
-
-#citySection img {
-  width: 100%;
-  border-radius: 30px;
-}
-
-#citySection div {
-  position: relative;
-  height: 300px;
-  border-radius: 30px;
-  overflow: hidden;
-  background-position: center;
-  background-size: cover;
-}
-
-#citySection div::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-position: center;
-  background-size: cover;
-  transition: transform 0.6s ease;
-}
-
-#citySection div:hover::before {
-  transform: scale(1.1);
-}
-.city_1::before {
-  background-image: url(../images/city_1.jpeg);
-}
-
-.city_2::before {
-  background-image: url(../images/city_2.jpeg);
-}
-
-.abstract_1::before {
-  background-image: url(../images/abstract_1.jpeg);
-}
-
-#citySection div:hover {
-  transform: scale(1.02);
-}
-
-#citySection div h4 {
-  font-weight: 600;
-  position: absolute;
-  bottom: 10px;
-  padding: 10px;
-  width: 100%;
-  background-color: var(--momiart-bg-color);
 }

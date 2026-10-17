@@ -31,6 +31,7 @@ body {
 
 #main {
   flex-grow: 1;
+  min-height: 80vh;
 }
 
 @media screen and (min-width: 798px) {

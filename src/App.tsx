@@ -8,7 +8,7 @@ import "./assets/styles/footer.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useData } from "./context/DataContext";
 import Navbar from "./components/Navbar";
-import Homepage from "./pages/Hompage";
+import Homepage from "./pages/Homepage";
 import Footer from "./components/Footer";
 import Error from "./pages/Error";
 

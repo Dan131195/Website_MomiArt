@@ -1,7 +1,8 @@
 #loadingContainer {
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -10,24 +11,10 @@
   width: 100%;
 }
 
-#loadingContainer img {
-  width: 60%;
+#titleAnimationLoading {
+  width: 100%;
 }
 
-#loadingContainer p {
-  color: #358def;
-  font-size: 2em;
-  animation: loading 2s linear infinite;
-}
-
-@keyframes loading {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
-  }
-  100% {
-    opacity: 1;
-  }
+#spinnerLoading {
+  width: 20%;
 }
