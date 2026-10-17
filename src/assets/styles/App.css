@@ -15,6 +15,7 @@
 
 body {
   background-color: var(--momiart-bg-color);
+  overflow-x: clip;
 }
 
 #root,
