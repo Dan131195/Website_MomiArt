@@ -1,7 +1,7 @@
 import { useData } from "../context/DataContext.ts";
 import { urlFor } from "../api/image.ts";
 
-import Title from "../assets/video/Titolo.png";
+import MomiArt from "../assets/video/MomiArt.png";
 
 const Homepage = () => {
   const { paintings } = useData();
@@ -12,7 +12,7 @@ const Homepage = () => {
         <section className="hero">
           <div>
             <h1>
-              <img src={Title} alt="Animazione MomiArt" className="my-4" />
+              <img src={MomiArt} alt="Animazione MomiArt" className="my-4" />
             </h1>
           </div>
           <div>
@@ -32,6 +32,12 @@ const Homepage = () => {
                 </div>
               </div>
             )}
+          </div>
+        </section>
+        <section>
+          <div>
+            <h2>About MomiArt</h2>
+            <p></p>
           </div>
         </section>
       </div>

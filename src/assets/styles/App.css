@@ -1,14 +1,14 @@
 :root {
-  --momiart-text: #757272;
+  --momiart-text: #0f2d64;
   --momiart-title-color: #2b65cf;
-  --momiart-bg-color: #f3efe7;
+  --momiart-bg-color: #dad7d0;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Fredericka the Great", "Roboto", sans-serif;
+  font-family: "Story Script", "Roboto", sans-serif;
   font-size: 1.2rem;
   color: var(--momiart-text);
 }

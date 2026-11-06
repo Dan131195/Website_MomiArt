@@ -1,7 +1,8 @@
 @import url("App.css");
 
 nav {
-  background-color: #f3efe7;
+  background-color: var(--momiart-bg-color);
+  border-bottom: 1px solid var(--momiart-text);
 }
 
 nav li {
@@ -9,6 +10,7 @@ nav li {
 }
 
 nav li a {
+  display: inline-block;
   color: var(--momiart-text);
   text-decoration: none;
   font-weight: 600;
@@ -17,7 +19,7 @@ nav li a {
 }
 
 nav li a:hover {
-  transform: scale(2);
+  transform: scale(1.1);
 }
 
 @media screen and (min-width: 992px) {
