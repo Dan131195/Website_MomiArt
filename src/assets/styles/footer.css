@@ -2,14 +2,10 @@ footer p {
   font-size: 0.7em;
 }
 
-hr {
+/* hr {
   color: rgb(4, 14, 102);
   border-width: 3px;
-}
-
-footer section h3 {
-  color: var(--momiart-title-color);
-}
+} */
 
 .dash {
   letter-spacing: -3px;

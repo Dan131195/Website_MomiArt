@@ -14,7 +14,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
   const [bio, setBio] = useState<BioInterface>({
     nome: "",
     descrizione: "",
-    descrizione2: "",
+    descrizione_breve: "",
     slug: "",
   });
   const [contacts, setContacts] = useState<ContactsInterface>({
@@ -56,7 +56,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
         `*[_type == "bio"][0]{ 
         nome, 
         descrizione, 
-        descrizione2, 
+        descrizione_breve, 
         "slug": slug.current 
         }`,
       ),

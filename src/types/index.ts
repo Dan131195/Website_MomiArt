@@ -34,7 +34,7 @@ export interface StyleInterface {
 export interface BioInterface {
   nome: string;
   descrizione: string;
-  descrizione2: string;
+  descrizione_breve: string;
   slug: string;
 }
 

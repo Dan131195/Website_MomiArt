@@ -1,3 +1,5 @@
+/* SECTION HERO */
+
 h1,
 h1 span {
   font-weight: 600;
@@ -14,9 +16,13 @@ h1 img {
   overflow: hidden;
 }
 
-#carousel {
+.carousel {
   width: max-content;
-  animation: carousel 20s linear infinite;
+  animation: carousel 40s linear infinite;
+}
+
+.carousel-reverse {
+  animation-delay: -20s;
 }
 
 @keyframes carousel {
@@ -43,21 +49,45 @@ h1 img {
   }
 }
 
-#carousel img {
-  width: 250px;
+.carousel img {
+  width: 150px;
 }
 
 @media screen and (min-width: 768px) {
-  #carousel img {
-    width: 400px;
+  .carousel img {
+    width: 300px;
   }
 }
 
 @media screen and (min-width: 992px) {
-  #carousel {
-    animation: carousel_expanded 15s linear infinite;
+  .carousel {
+    animation: carousel_expanded 30s linear infinite;
   }
-  #carousel img {
-    width: 500px;
+  .carousel-reverse {
+    animation-delay: -15s;
   }
+}
+
+/* SECTION ABOUT MOMIART */
+
+#aboutMomiArt {
+  background-image: linear-gradient(
+    170deg,
+    rgba(79, 174, 92, 0.6) 0%,
+    rgba(44, 106, 166, 0.6) 35%,
+    rgba(168, 212, 124, 0.6) 70%,
+    rgba(120, 182, 207, 0.6) 100%
+  );
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  border-radius: 20px;
+}
+
+#aboutMomiArtContent,
+#aboutMomiArtContent p {
+  color: var(--momiart-text);
+}
+
+#aboutMomiArtContent p {
+  text-align: justify;
 }
