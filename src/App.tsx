@@ -1,7 +1,7 @@
 import "./assets/styles/App.css";
 import "./assets/styles/navbar.css";
 import "./assets/styles/loading.css";
-import "./assets/styles/home.css";
+import "./assets/styles/homepage.css";
 import "./assets/styles/paintings.css";
 import "./assets/styles/footer.css";
 
