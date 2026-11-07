@@ -52,12 +52,12 @@ const Homepage = () => {
           <div id="aboutMomiArtContent" className="py-3">
             <hr />
 
-            <h2 className="font display-4 mb-4 fw-bolder py-2">
-              <span className="fw-bolder display-4 ">About - </span> Momi Art
+            <h2 className="font display-4 mb-4  py-2">
+              <span className=" fw-medium display-4 ">About - </span> Momi Art
             </h2>
             <p className="me-md-5 pb-3 fw-bold">{bio.descrizione_breve}</p>
 
-            <div className=" mb-4 moreInfoButton">
+            <div className=" mb-1 moreInfoButton">
               <Link to="/Contatti" className="font ">
                 Scopri di più..
               </Link>
@@ -67,7 +67,7 @@ const Homepage = () => {
           </div>
         </section>
 
-        <section id="paintingHomepageContainer" className="my-5">
+        <section id="paintingHomepageContainer" className="mb-5 mt-2">
           <div>
             <h2 className="font mb-4">Paintings</h2>
           </div>
