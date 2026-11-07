@@ -1,16 +1,20 @@
 :root {
-  --momiart-text: #757272;
+  --momiart-text: #153e88;
   --momiart-title-color: #2b65cf;
-  --momiart-bg-color: #f3efe7;
+  --momiart-bg-color: #dad7d0;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Fredericka the Great", "Roboto", sans-serif;
+  font-family: "Nunito", "Roboto", sans-serif;
   font-size: 1.2rem;
   color: var(--momiart-text);
+}
+
+.font {
+  font-family: "Bagel Fat One", system-ui;
 }
 
 body {
@@ -19,7 +23,7 @@ body {
 }
 
 #root,
-.descrictionHomeContainer * {
+#aboutMomiArtContent {
   width: 90%;
   margin: auto;
 }
@@ -40,14 +44,14 @@ body {
     font-size: 1.3rem;
   }
   #root,
-  .descrictionHomeContainer * {
-    width: 70%;
+  #aboutMomiArtContent {
+    width: 80%;
   }
 }
 
 @media screen and (min-width: 2000px) {
   #root,
-  .descrictionHomeContainer * {
+  #aboutMomiArtContent {
     width: 55%;
   }
 }

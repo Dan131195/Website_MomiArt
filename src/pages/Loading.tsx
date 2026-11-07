@@ -1,4 +1,4 @@
-import Title from "../assets/video/Titolo.png";
+import MomiArt from "../assets/video/MomiArt.png";
 import LoadingCircle from "../assets/video/loading.gif";
 
 const Loading = () => {
@@ -6,8 +6,8 @@ const Loading = () => {
     <div id="loadingContainer" className="text-center">
       <div>
         <img
-          src={Title}
-          alt="Loading Title animation"
+          src={MomiArt}
+          alt="Loading MomiArt animation"
           id="titleAnimationLoading"
         />
       </div>
