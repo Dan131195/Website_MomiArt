@@ -30,3 +30,23 @@ export interface StyleInterface {
   slug: string;
   stile: string;
 }
+
+export interface BioInterface {
+  nome: string;
+  descrizione: string;
+  descrizione2: string;
+  slug: string;
+}
+
+export interface SocialInterface {
+  _key: string;
+  piattaforma: string;
+  url: string;
+}
+
+export interface ContactsInterface {
+  cellulare: string;
+  email: string;
+  slug: string;
+  social: SocialInterface[];
+}

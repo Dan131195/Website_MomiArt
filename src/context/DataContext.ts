@@ -1,9 +1,16 @@
 import { createContext, useContext } from "react";
-import type { PaintingInterface, StyleInterface } from "../types/index.ts";
+import type {
+  BioInterface,
+  ContactsInterface,
+  PaintingInterface,
+  StyleInterface,
+} from "../types/index.ts";
 
 export type DataType = {
   paintings: PaintingInterface[];
   styles: StyleInterface[];
+  bio: BioInterface;
+  contacts: ContactsInterface;
   loading: boolean;
 };
 
