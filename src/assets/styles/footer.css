@@ -1,11 +1,12 @@
+footer {
+  box-shadow: 0 -4px 6px -4px rgba(0, 0, 0, 0.25);
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
+
 footer p {
   font-size: 0.7em;
 }
-
-/* hr {
-  color: rgb(4, 14, 102);
-  border-width: 3px;
-} */
 
 .dash {
   letter-spacing: -3px;
