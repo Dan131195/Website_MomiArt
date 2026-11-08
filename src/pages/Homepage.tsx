@@ -66,40 +66,6 @@ const Homepage = () => {
     <div>
       <div id="homeContainer">
         <section className="hero">
-          {/* <div className=" text-center">
-            <h1>
-              <img src={MomiArt} alt="Animazione MomiArt" className="my-4" />
-            </h1>
-          </div>
-          <div>
-            {paintings && (
-              <div id="carouselContainer" className="my-2">
-                <div className="carousel d-flex gap-2 gap-md-3 mb-2">
-                  {paintings.map((p) => {
-                    return (
-                      <img
-                        key={p._id}
-                        src={urlFor(p.immagine).url()}
-                        alt={p.titolo}
-                        className="rounded-4"
-                      />
-                    );
-                  })}
-                </div>
-                <div className="carousel-reverse d-flex gap-2 gap-md-3 mb-4">
-                  {[...paintings].reverse().map((p) => (
-                    <img
-                      key={p._id}
-                      src={urlFor(p.immagine).url()}
-                      alt={p.titolo}
-                      className="rounded-4"
-                    />
-                  ))}
-                </div>
-              </div>
-            )}
-          </div> */}
-
           {paintings.length > 0 && (
             <div className="hero-wall" aria-hidden="true">
               <div className="hero-track">{renderTrack(paintings)}</div>
@@ -117,9 +83,6 @@ const Homepage = () => {
               <span className="visually-hidden">Momi Art</span>
               <img src={MomiArt} alt="" />
             </h1>
-            {/* <p className="hero-subtitle">
-              Colori che raccontano città ed emozioni.
-            </p> */}
             <div className="hero-btn">
               <Link to="/Opere" className="btn-hero btn-hero--primary">
                 Guarda le opere
