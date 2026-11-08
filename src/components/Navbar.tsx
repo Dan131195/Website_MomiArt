@@ -77,7 +77,7 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <Link to="/#aboutMomiArtContainer" onClick={close}>
+            <Link to="/About" onClick={close}>
               About
             </Link>
           </li>
