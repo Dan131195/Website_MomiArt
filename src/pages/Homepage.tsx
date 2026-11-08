@@ -107,7 +107,7 @@ const Homepage = () => {
             <p className="section-eyebrow">About</p>
             <h2 className="section-title">Momi Art</h2>
             <p className="about-bio">{bio.descrizione_breve}</p>
-            <Link to="/Contatti" className="btn-hero btn-hero--ghost">
+            <Link to="/About" className="btn-hero btn-hero--ghost">
               Scopri di più
             </Link>
           </div>

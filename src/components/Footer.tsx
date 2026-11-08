@@ -54,11 +54,11 @@ const Footer = () => {
             ) : null}
 
             {contacts?.email || contacts?.cellulare ? (
-              <div className="footer-col">
+              <div className="footer-col footer-col--contacts">
                 <p className="footer-col-title">Contatti</p>
                 <ul>
                   {contacts.email && (
-                    <li>
+                    <li className="footer-email">
                       <a href={`mailto:${contacts.email}`}>{contacts.email}</a>
                     </li>
                   )}

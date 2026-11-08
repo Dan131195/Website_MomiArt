@@ -11,6 +11,7 @@ import Navbar from "./components/Navbar";
 import Homepage from "./pages/Homepage";
 import Footer from "./components/Footer";
 import Error from "./pages/Error";
+import About from "./pages/About";
 
 import Loading from "./pages/Loading";
 import Paintings from "./pages/Paintings";
@@ -37,6 +38,7 @@ function App() {
               <Route path="*" element={<Error />} />
               <Route path="/Opere" element={<Paintings />} />
               <Route path="/Contatti" element={<Contacts />} />
+              <Route path="/About" element={<About />} />
             </Routes>
           </div>
 

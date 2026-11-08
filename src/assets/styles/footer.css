@@ -50,6 +50,10 @@
   gap: 2.5rem 2rem;
 }
 
+.footer-col--contacts {
+  grid-column: 1 / -1;
+}
+
 .footer-col-title {
   margin: 0 0 1rem;
   font-size: 0.72rem;
@@ -74,7 +78,7 @@
   font-weight: 600;
   color: var(--momiart-bg-color);
   text-decoration: none;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
   transition:
     color 0.25s ease,
     transform 0.25s ease;
@@ -131,10 +135,20 @@
     justify-content: space-between;
     align-items: flex-start;
   }
+}
 
+@media screen and (min-width: 992px) {
   .footer-cols {
     grid-template-columns: repeat(3, auto);
-    gap: 4rem;
+    gap: 3rem;
+  }
+
+  .footer-col--contacts {
+    grid-column: auto;
+  }
+
+  .footer-col--contacts a {
+    white-space: nowrap;
   }
 }
 
