@@ -1,21 +1,5 @@
-/* MORE INFO BUTTON */
-
-.moreInfoButton {
-  display: inline-block;
-  border: 1px solid rgb(179, 179, 179);
-  padding: 7px 15px;
-  border-radius: 30px 50px;
-  background-color: rgb(214, 213, 213);
-}
-
-#aboutMomiArtContent div a,
-#paintingHomepageContainer div a {
-  text-decoration: none;
-  color: var(--momiart-text);
-  font-size: 0.8em;
-}
-
-/* SECTION HERO */
+/*--------------------------*/
+/*  SECTION HERO  */
 
 h1,
 h1 span {
@@ -23,104 +7,530 @@ h1 span {
   color: var(--momiart-title-color);
 }
 
-h1 img {
-  width: 90%;
-}
-
-#carouselContainer {
+.hero {
   width: 100vw;
   margin-left: calc(50% - 50vw);
+  margin-top: calc(-1 * var(--navbar-h));
+  min-height: 100svh;
+
+  position: relative;
+  isolation: isolate;
   overflow: hidden;
+
+  display: grid;
+  place-items: center;
+  padding: calc(var(--navbar-h) + 2rem) 1rem 6rem;
+
+  --veil-size: 95% 40%;
 }
 
-.carousel {
+.hero-wall {
+  position: absolute;
+  inset: -15% -10%;
+  z-index: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.25rem;
+
+  transform: rotate(-5deg);
+}
+
+.hero-track {
+  display: flex;
+  align-items: center;
   width: max-content;
-  animation: carousel 30s linear infinite;
+  animation: hero-scroll-left 60s linear infinite;
 }
 
-.carousel-reverse {
-  animation-delay: -20s;
+.hero-track--right {
+  animation-name: hero-scroll-right;
+  animation-duration: 75s;
 }
 
-@keyframes carousel {
-  0% {
-    transform: translateX(-10%);
+.hero-track img {
+  width: 170px;
+  height: 170px;
+  margin-right: 1rem;
+  object-fit: cover;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgb(21 62 136 / 0.18);
+  transition:
+    transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 0.5s ease;
+}
+
+.hero-track img.is-tall {
+  height: 230px;
+}
+
+.hero-track img.is-wide {
+  width: 240px;
+}
+
+.hero-wall:hover .hero-track {
+  animation-play-state: paused;
+}
+
+.hero-track:hover img:not(:hover) {
+  filter: saturate(0.5) opacity(0.6);
+}
+
+.hero-track img:hover {
+  transform: scale(1.08);
+}
+
+@keyframes hero-scroll-left {
+  from {
+    transform: translateX(0);
   }
-  50% {
+  to {
     transform: translateX(-50%);
   }
-  100% {
-    transform: translatex(-10%);
+}
+
+@keyframes hero-scroll-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
   }
 }
 
-@keyframes carousel_expanded {
-  0% {
-    transform: translateX(-10%);
-  }
-  50% {
-    transform: translateX(-40%);
-  }
-  100% {
-    transform: translatex(-10%);
-  }
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse var(--veil-size) at 50% 50%,
+      color-mix(in srgb, var(--momiart-bg-color) 92%, transparent) 0%,
+      color-mix(in srgb, var(--momiart-bg-color) 75%, transparent) 55%,
+      transparent 100%
+    ),
+    linear-gradient(
+      to bottom,
+      var(--momiart-bg-color),
+      transparent 18%,
+      transparent 82%,
+      var(--momiart-bg-color)
+    ),
+    linear-gradient(
+      to right,
+      var(--momiart-bg-color),
+      transparent 10%,
+      transparent 90%,
+      var(--momiart-bg-color)
+    );
 }
 
-.carousel img {
-  width: 160px;
-  height: 160px;
+/*  CONTENUTO  */
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  text-align: center;
+  pointer-events: none;
 }
 
-@media screen and (min-width: 768px) {
-  .carousel img {
-    width: 250px;
-    height: 200px;
-  }
+.hero-content a {
+  pointer-events: auto;
 }
 
-@media screen and (min-width: 992px) {
-  .carousel {
-    animation: carousel_expanded 30s linear infinite;
-  }
-  .carousel-reverse {
-    animation-delay: -15s;
-  }
+.hero-eyebrow {
+  margin-bottom: 1rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--momiart-title-color);
 }
 
-/* SECTION ABOUT MOMIART */
-
-#aboutMomiArtContainer {
-  /* background-image:
-    linear-gradient(rgba(201, 198, 198, 0.9), rgba(240, 239, 239, 0.7)),
-    url("../images/abstract_2.jpeg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat; */
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  border-radius: 10px;
+.hero-title {
+  margin: 0;
+  line-height: 0;
 }
 
-#aboutMomiArtContent,
-#aboutMomiArtContent p {
+.hero-title img {
+  width: clamp(240px, 70vw, 620px);
+  height: auto;
+  filter: drop-shadow(0 8px 24px rgb(21 62 136 / 0.15));
+}
+
+.hero-subtitle {
+  margin: 1.25rem 0 2rem;
+  font-size: clamp(1.15rem, 2.4vw, 1.6rem);
+}
+
+/*  BOTTONI  */
+
+.hero-btn {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.btn-hero {
+  display: inline-block;
+  padding: 0.8rem 1.6rem;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.btn-hero:hover {
+  transform: translateY(-2px);
+}
+
+.btn-hero--primary {
+  background-color: var(--momiart-title-color);
+  color: #fff;
+  box-shadow: 0 8px 20px rgb(43 101 207 / 0.35);
+}
+
+.btn-hero--primary:hover {
+  background-color: var(--momiart-text);
+  color: #fff;
+  box-shadow: 0 12px 28px rgb(43 101 207 / 0.45);
+}
+
+.btn-hero--ghost {
+  border: 2px solid var(--momiart-text);
+  color: var(--momiart-text);
+  background-color: rgb(255 255 255 / 0.35);
+  backdrop-filter: blur(6px);
+}
+
+.btn-hero--ghost:hover {
+  background-color: var(--momiart-text);
+  color: #fff;
+}
+
+.btn-hero--light {
+  background-color: var(--momiart-bg-color);
+  color: var(--momiart-text);
+  box-shadow: 0 8px 20px rgb(0 0 0 / 0.2);
+}
+
+.btn-hero--light:hover {
+  background-color: #fff;
   color: var(--momiart-text);
 }
 
-#aboutMomiArtContent p {
-  text-align: justify;
-  font-size: 0.8em;
+/*  INDICATORE DI SCROLL  */
+
+.hero-scroll {
+  position: absolute;
+  z-index: 2;
+  bottom: 1.75rem;
+  left: 50%;
+  margin-left: -13px;
+  width: 26px;
+  height: 42px;
+  border: 2px solid var(--momiart-text);
+  border-radius: 999px;
+  animation: hero-fade-in 1s 1s both;
 }
 
-#aboutMomiArtContent hr {
-  border: 3px solid rgb(26, 74, 146);
+.hero-scroll span {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  width: 4px;
+  height: 8px;
+  margin-left: -2px;
+  border-radius: 2px;
+  background-color: var(--momiart-text);
+  animation: hero-scroll-dot 1.8s ease-in-out infinite;
 }
 
-/* SECTION PAINTING LIST */
-
-#paintingHomepageContainer div img {
-  width: 80%;
+@keyframes hero-scroll-dot {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
 }
 
-#paintingHomepageContainer div p {
-  font-size: 0.6em;
+/*  ANIMAZIONE D'INGRESSO  */
+
+.hero-content > * {
+  animation: hero-fade-up 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.hero-content > :nth-child(1) {
+  animation-delay: 0.1s;
+}
+.hero-content > :nth-child(2) {
+  animation-delay: 0.25s;
+}
+.hero-content > :nth-child(3) {
+  animation-delay: 0.4s;
+}
+.hero-content > :nth-child(4) {
+  animation-delay: 0.55s;
+}
+
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes hero-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/*  RESPONSIVE  */
+
+@media screen and (min-width: 768px) {
+  .hero {
+    --veil-size: 55% 42%;
+  }
+
+  .hero-wall {
+    gap: 1.5rem;
+  }
+
+  .hero-track img {
+    width: 240px;
+    height: 240px;
+    margin-right: 1.5rem;
+  }
+
+  .hero-track img.is-tall {
+    height: 320px;
+  }
+
+  .hero-track img.is-wide {
+    width: 340px;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.8rem;
+  }
+}
+
+/*  ACCESSIBILITÀ  */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-track,
+  .hero-content > *,
+  .hero-scroll,
+  .hero-scroll span {
+    animation: none;
+  }
+
+  .hero-track img {
+    transition: none;
+  }
+}
+
+/*--------------------------*/
+/*  SECTION ABOUT MOMIART  */
+
+#aboutMomiArtContainer {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  position: relative;
+  isolation: isolate;
+  padding: 5rem 1rem;
+  background-color: var(--momiart-bg-color);
+  scroll-margin-top: var(--navbar-h);
+}
+
+#aboutMomiArtContainer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url("../images/abstract_3.jpeg") center / cover no-repeat;
+  opacity: 0.45;
+
+  --fade: 12%;
+  --mask:
+    linear-gradient(
+      to right,
+      transparent,
+      #000 var(--fade),
+      #000 calc(100% - var(--fade)),
+      transparent
+    ),
+    linear-gradient(
+      to bottom,
+      transparent,
+      #000 var(--fade),
+      #000 calc(100% - var(--fade)),
+      transparent
+    );
+
+  -webkit-mask-image: var(--mask);
+  -webkit-mask-composite: source-in;
+  mask-image: var(--mask);
+  mask-composite: intersect;
+}
+
+.about-card {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2.5rem 1.75rem;
+
+  border: 1px solid rgb(255 255 255 / 0.5);
+  border-radius: 1.5rem;
+  background-color: color-mix(
+    in srgb,
+    var(--momiart-bg-color) 65%,
+    transparent
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 20px 50px rgb(21 62 136 / 0.12);
+}
+
+.about-bio {
+  margin-bottom: 2rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.7;
+  color: var(--momiart-text);
+}
+
+@media screen and (min-width: 768px) {
+  #aboutMomiArtContainer {
+    padding: 7rem 2rem;
+  }
+
+  .about-card {
+    padding: 3.5rem 3.5rem;
+  }
+}
+
+/*--------------------------*/
+/*  SECTION PAINTING LIST  */
+
+#paintingHomepageContainer {
+  padding: 6rem 0 2rem;
+}
+
+.featured-header {
+  margin-bottom: 3.5rem;
+  text-align: center;
+}
+
+.featured-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4.5rem;
+}
+
+.featured-item {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.featured-media {
+  overflow: hidden;
+  border-radius: 1rem;
+  box-shadow: 0 20px 45px rgb(21 62 136 / 0.18);
+}
+
+.featured-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.featured-item:hover .featured-media img {
+  transform: scale(1.05);
+}
+
+.featured-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.featured-index {
+  font-family: "Bagel Fat One", system-ui;
+  font-size: 2.75rem;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--momiart-title-color);
+}
+
+.featured-title {
+  margin: 0.4rem 0 0;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--momiart-text);
+}
+
+.featured-year {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--momiart-title-color);
+}
+
+.featured-cta {
+  margin-top: 4.5rem;
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .featured-item {
+    grid-template-columns: 3fr 2fr;
+    align-items: end;
+    gap: 2.5rem;
+  }
+
+  .featured-item:nth-child(even) {
+    grid-template-columns: 2fr 3fr;
+  }
+
+  .featured-item:nth-child(even) .featured-media {
+    order: 2;
+  }
+
+  .featured-item:nth-child(even) .featured-info {
+    align-items: flex-end;
+    text-align: right;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .featured-media img {
+    transition: none;
+  }
 }

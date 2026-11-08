@@ -16,5 +16,11 @@
 }
 
 #spinnerLoading {
-  width: 20%;
+  width: 30%;
+}
+
+@media screen and (min-width: 992px) {
+  #loadingContainer div {
+    width: 50%;
+  }
 }

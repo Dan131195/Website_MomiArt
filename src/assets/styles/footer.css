@@ -1,14 +1,148 @@
-footer {
-  box-shadow: 0 -4px 6px -4px rgba(0, 0, 0, 0.25);
+/*--------------------------*/
+/*  FOOTER  */
+
+.site-footer {
   width: 100vw;
   margin-left: calc(50% - 50vw);
+  margin-top: 5rem;
+  padding: 4rem 1.5rem 1.5rem;
+  border-radius: 2rem 2rem 0 0;
+  background-color: var(--momiart-text);
 }
 
-footer p {
-  font-size: 0.7em;
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
-.dash {
-  letter-spacing: -3px;
-  margin: -5px 0px;
+.footer-top {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgb(228 227 224 / 0.2);
+}
+
+/*  BRAND  */
+
+.footer-logo {
+  margin: 0 0 0.75rem;
+  font-family: "Bagel Fat One", system-ui;
+  font-size: clamp(2.5rem, 9vw, 4rem);
+  line-height: 1;
+  color: #fff;
+}
+
+.footer-tagline {
+  margin: 0 0 1.75rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgb(228 227 224 / 0.7);
+}
+
+/*  COLONNE  */
+
+.footer-cols {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem 2rem;
+}
+
+.footer-col-title {
+  margin: 0 0 1rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgb(228 227 224 / 0.6);
+}
+
+.footer-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-col a {
+  display: inline-block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--momiart-bg-color);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.footer-col a:hover {
+  color: #fff;
+  transform: translateX(4px);
+}
+
+/*  BOTTOM  */
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1.5rem;
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: rgb(228 227 224 / 0.7);
+}
+
+.footer-top-btn {
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--momiart-bg-color);
+  cursor: pointer;
+  transition: color 0.25s ease;
+}
+
+.footer-top-btn:hover {
+  color: #fff;
+}
+
+/*  RESPONSIVE  */
+
+@media screen and (min-width: 768px) {
+  .site-footer {
+    padding: 5rem 3rem 2rem;
+    border-radius: 3rem 3rem 0 0;
+  }
+
+  .footer-top {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .footer-cols {
+    grid-template-columns: repeat(3, auto);
+    gap: 4rem;
+  }
+}
+
+/*  ACCESSIBILITÀ  */
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-col a,
+  .footer-top-btn {
+    transition: none;
+  }
 }

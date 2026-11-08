@@ -72,7 +72,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
          url } }`,
       ),
 
-      delay(2000),
+      delay(3000),
     ])
 
       .then(([paintingsData, stylesData, bioData, contactsData]) => {

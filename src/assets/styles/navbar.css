@@ -1,31 +1,331 @@
-@import url("App.css");
+/*--------------------------*/
+/*  NAVBAR  */
 
-nav {
-  background-color: var(--momiart-bg-color);
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  box-shadow: 0 4px 6px -4px rgba(0, 0, 0, 0.25);
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 0.75rem 1rem;
 }
 
-nav li {
-  list-style-type: none;
+.topbar-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem 0.6rem 0.5rem 1.1rem;
+
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background-color: color-mix(
+    in srgb,
+    var(--momiart-bg-color) 35%,
+    transparent
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-nav li a {
-  display: inline-block;
+.topbar.is-scrolled .topbar-inner {
+  background-color: color-mix(
+    in srgb,
+    var(--momiart-bg-color) 85%,
+    transparent
+  );
+  border-color: rgb(255 255 255 / 0.5);
+  box-shadow: 0 10px 30px rgb(21 62 136 / 0.12);
+}
+
+.topbar.is-open .topbar-inner {
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+/*  BRAND  */
+
+.topbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.topbar-brand img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.topbar-brand span {
+  font-family: "Bagel Fat One", system-ui;
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+  color: var(--momiart-title-color);
+}
+
+/*  LINK  */
+
+.topbar-links {
+  display: none;
+  gap: 2rem;
+  margin: 0 1rem 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.topbar-link {
+  position: relative;
+  padding: 0.25rem 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
   color: var(--momiart-text);
   text-decoration: none;
-  font-weight: 500;
-  letter-spacing: 1.1px;
-  font-size: 0.7em;
+  transition: color 0.25s ease;
 }
 
-nav li a:hover {
-  transform: scale(1.1);
+.topbar-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 2px;
+  border-radius: 2px;
+  background-color: var(--momiart-title-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
-@media screen and (min-width: 992px) {
-  nav li a {
-    font-size: 0.8em;
+.topbar-link:hover,
+.topbar-link.active {
+  color: var(--momiart-title-color);
+}
+
+.topbar-link:hover::after,
+.topbar-link.active::after {
+  transform: scaleX(1);
+}
+
+/*  BOTTONE CONTATTI  */
+
+.topbar-cta {
+  display: none;
+  padding: 0.6rem 1.3rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  background-color: var(--momiart-title-color);
+  box-shadow: 0 6px 16px rgb(43 101 207 / 0.3);
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.topbar-cta:hover {
+  color: #fff;
+  background-color: var(--momiart-text);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgb(43 101 207 / 0.4);
+}
+
+.topbar-cta.active {
+  color: #fff;
+  background-color: var(--momiart-text);
+}
+
+/*  HAMBURGER  */
+
+.topbar-toggle {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background-color: var(--momiart-title-color);
+  cursor: pointer;
+}
+
+.topbar-toggle span {
+  position: absolute;
+  left: 13px;
+  right: 13px;
+  height: 2px;
+  border-radius: 2px;
+  background-color: #fff;
+  transition:
+    top 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.topbar-toggle span:nth-child(1) {
+  top: 17px;
+}
+
+.topbar-toggle span:nth-child(2) {
+  top: 25px;
+}
+
+.topbar.is-open .topbar-toggle span:nth-child(1) {
+  top: 21px;
+  transform: rotate(45deg);
+}
+
+.topbar.is-open .topbar-toggle span:nth-child(2) {
+  top: 21px;
+  transform: rotate(-45deg);
+}
+
+/*  MENU MOBILE  */
+
+.topbar-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  padding: 6rem 1.5rem 3rem;
+
+  background-color: var(--momiart-bg-color);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.4s ease,
+    visibility 0s linear 0.4s;
+}
+
+.topbar.is-open .topbar-menu {
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 0.4s ease,
+    visibility 0s;
+}
+
+.topbar-menu ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.topbar-menu li {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.5s cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.topbar.is-open .topbar-menu li {
+  opacity: 1;
+  transform: none;
+}
+
+.topbar.is-open .topbar-menu li:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.topbar.is-open .topbar-menu li:nth-child(2) {
+  transition-delay: 0.18s;
+}
+.topbar.is-open .topbar-menu li:nth-child(3) {
+  transition-delay: 0.26s;
+}
+.topbar.is-open .topbar-menu li:nth-child(4) {
+  transition-delay: 0.34s;
+}
+
+.topbar-menu ul a {
+  display: inline-block;
+  padding: 0.4rem 0;
+  font-family: "Bagel Fat One", system-ui;
+  font-size: clamp(2.2rem, 11vw, 3.5rem);
+  line-height: 1.1;
+  color: var(--momiart-text);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.topbar-menu ul a:hover,
+.topbar-menu ul a.active {
+  color: var(--momiart-title-color);
+}
+
+.topbar-social {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.topbar.is-open .topbar-social {
+  opacity: 1;
+  transition-delay: 0.45s;
+}
+
+.topbar-social a {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--momiart-text);
+  text-decoration: none;
+}
+
+/*  RESPONSIVE  */
+
+@media screen and (min-width: 768px) {
+  .topbar {
+    padding: 1rem 1.5rem;
+  }
+
+  .topbar-links {
+    display: flex;
+  }
+
+  .topbar-cta {
+    display: inline-block;
+  }
+
+  .topbar-toggle,
+  .topbar-menu {
+    display: none;
+  }
+}
+
+/*  ACCESSIBILITÀ  */
+
+@media (prefers-reduced-motion: reduce) {
+  .topbar-inner,
+  .topbar-link::after,
+  .topbar-toggle span,
+  .topbar-menu,
+  .topbar-menu li,
+  .topbar-social {
+    transition: none;
   }
 }

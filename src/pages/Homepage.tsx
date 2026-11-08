@@ -1,19 +1,72 @@
 import { useData } from "../context/DataContext.ts";
 import { urlFor } from "../api/image.ts";
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+
+import type { PaintingInterface } from "../types/index.ts";
+import useReveal from "../hooks/useReveal.ts";
 
 import MomiArt from "../assets/video/MomiArt.png";
 import abstract_1 from "../assets/images/abstract_1.jpeg";
 import city_1 from "../assets/images/city_1.jpeg";
 import city_2 from "../assets/images/city_2.jpeg";
+
+const FEATURED = [
+  {
+    src: city_1,
+    title: "Eclipse - CityLife 1",
+    year: 2024,
+    alt: "Dipinto Eclipse - CityLife 1",
+  },
+  {
+    src: city_2,
+    title: "Eclipse - CityLife 2",
+    year: 2024,
+    alt: "Dipinto Eclipse - CityLife 2",
+  },
+  {
+    src: abstract_1,
+    title: "Abstract - PinkyBlue",
+    year: 2025,
+    alt: "Dipinto astratto PinkyBlue",
+  },
+];
+
 const Homepage = () => {
   const { paintings, bio } = useData();
+  const { hash, key } = useLocation();
+  useReveal();
+  const SHAPES = ["", "is-tall", "is-wide"];
+  const MIN_PER_TRACK = 12;
+
+  const buildTrack = (list: PaintingInterface[]) => {
+    if (list.length === 0) return [];
+    const base: PaintingInterface[] = [];
+    while (base.length < MIN_PER_TRACK) base.push(...list);
+    return [...base, ...base];
+  };
+
+  const renderTrack = (list: PaintingInterface[]) =>
+    buildTrack(list).map((p, i) => (
+      <img
+        key={`${p._id}-${i}`}
+        src={urlFor(p.immagine).width(600).auto("format").url()}
+        alt=""
+        decoding="async"
+        className={SHAPES[(i % list.length) % SHAPES.length]}
+      />
+    ));
+
+  useEffect(() => {
+    if (!hash) return;
+    document.getElementById(hash.slice(1))?.scrollIntoView();
+  }, [hash, key]);
 
   return (
     <div>
       <div id="homeContainer">
         <section className="hero">
-          <div className=" text-center">
+          {/* <div className=" text-center">
             <h1>
               <img src={MomiArt} alt="Animazione MomiArt" className="my-4" />
             </h1>
@@ -33,7 +86,7 @@ const Homepage = () => {
                     );
                   })}
                 </div>
-                <div className="carousel carousel-reverse d-flex gap-2 gap-md-3 mb-4">
+                <div className="carousel-reverse d-flex gap-2 gap-md-3 mb-4">
                   {[...paintings].reverse().map((p) => (
                     <img
                       key={p._id}
@@ -45,50 +98,85 @@ const Homepage = () => {
                 </div>
               </div>
             )}
+          </div> */}
+
+          {paintings.length > 0 && (
+            <div className="hero-wall" aria-hidden="true">
+              <div className="hero-track">{renderTrack(paintings)}</div>
+              <div className="hero-track hero-track--right">
+                {renderTrack([...paintings].reverse())}
+              </div>
+            </div>
+          )}
+
+          <div className="hero-content">
+            <p className="hero-eyebrow">
+              Pittura contemporanea · Astratto &amp; Urbano
+            </p>
+            <h1 className="hero-title">
+              <span className="visually-hidden">Momi Art</span>
+              <img src={MomiArt} alt="" />
+            </h1>
+            {/* <p className="hero-subtitle">
+              Colori che raccontano città ed emozioni.
+            </p> */}
+            <div className="hero-btn">
+              <Link to="/Opere" className="btn-hero btn-hero--primary">
+                Guarda le opere
+              </Link>
+              <Link to="/Contatti" className="btn-hero btn-hero--ghost">
+                Contattami
+              </Link>
+            </div>
           </div>
+
+          <a
+            href="#aboutMomiArtContainer"
+            className="hero-scroll"
+            aria-label="Scorri alla sezione About"
+          >
+            <span></span>
+          </a>
         </section>
 
         <section id="aboutMomiArtContainer">
-          <div id="aboutMomiArtContent" className="py-3">
-            <hr />
-
-            <h2 className="font display-4 mb-4  py-2">
-              <span className=" fw-medium display-4 ">About - </span> Momi Art
-            </h2>
-            <p className="me-md-5 pb-3 fw-bold">{bio.descrizione_breve}</p>
-
-            <div className=" mb-1 moreInfoButton">
-              <Link to="/Contatti" className="font ">
-                Scopri di più..
-              </Link>
-            </div>
-
-            <hr className="mt-5" />
+          <div className="about-card reveal">
+            <p className="section-eyebrow">About</p>
+            <h2 className="section-title">Momi Art</h2>
+            <p className="about-bio">{bio.descrizione_breve}</p>
+            <Link to="/Contatti" className="btn-hero btn-hero--ghost">
+              Scopri di più
+            </Link>
           </div>
         </section>
 
-        <section id="paintingHomepageContainer" className="mb-5 mt-2">
-          <div>
-            <h2 className="font mb-4">Paintings</h2>
+        <section id="paintingHomepageContainer">
+          <header className="featured-header reveal">
+            <p className="section-eyebrow">Opere in evidenza</p>
+            <h2 className="section-title">Paintings</h2>
+          </header>
+
+          <div className="featured-list">
+            {FEATURED.map((f, i) => (
+              <article key={f.title} className="featured-item reveal">
+                <div className="featured-media">
+                  <img src={f.src} alt={f.alt} loading="lazy" />
+                </div>
+                <div className="featured-info">
+                  <span className="featured-index">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="featured-title">{f.title}</h3>
+                  <p className="featured-year">{f.year}</p>
+                </div>
+              </article>
+            ))}
           </div>
 
-          <div>
-            <img src={city_1} alt="Immagine dipinto eclipse city" />
-            <p className="m-0 mt-1">Eclipse - CityLife 1</p>
-            <p>2024</p> <hr />
-          </div>
-
-          <div className="my-5 text-end">
-            <img src={city_2} alt="Immagine dipinto eclipse city" />
-            <p className="m-0 mt-1">Eclipse - CityLife 2</p>
-            <p>2024</p>
-            <hr />
-          </div>
-
-          <div>
-            <img src={abstract_1} alt="Immagine dipinto astratto" />
-            <p className="m-0 mt-1">Abstract - PinkyBlue</p>
-            <p>2025</p>
+          <div className="featured-cta reveal">
+            <Link to="/Opere" className="btn-hero btn-hero--primary">
+              Vedi tutte le opere
+            </Link>
           </div>
         </section>
       </div>
