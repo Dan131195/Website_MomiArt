@@ -46,7 +46,7 @@ const Navbar = () => {
             </NavLink>
           </li>
           <li>
-            <Link to="/#aboutMomiArtContainer" className="topbar-link">
+            <Link to="/About" className="topbar-link">
               About
             </Link>
           </li>
